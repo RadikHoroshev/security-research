@@ -1,0 +1,28 @@
+{
+  "id": "handshake_jules",
+  "type": "handshake",
+  "assigned_to": "jules",
+  "status": "pending",
+  "priority": "high",
+  "created_at": "2026-04-03T00:00:00Z",
+  "payload": {
+    "task": "Handshake connectivity test",
+    "instructions": [
+      "Выполни команду: jules \"Напиши 'Jules OK' в файл /Users/code/project/intel/results/conn_jules.txt\"",
+      "Если команда не работает, попробуй: jules write /Users/code/project/intel/results/conn_jules.txt \"Jules OK\"",
+      "Дождись завершения выполнения",
+      "Убедись, что файл /Users/code/project/intel/results/conn_jules.txt создан",
+      "Запиши статус выполнения"
+    ],
+    "expected_output": {
+      "file": "/Users/code/project/intel/results/conn_jules.txt",
+      "content": "Jules OK"
+    },
+    "timeout_seconds": 60
+  },
+  "metadata": {
+    "test_type": "connectivity",
+    "agent_name": "jules",
+    "description": "Проверка связи с Jules CLI"
+  }
+}

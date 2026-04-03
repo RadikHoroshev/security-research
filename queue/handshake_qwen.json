@@ -1,0 +1,27 @@
+{
+  "id": "handshake_qwen",
+  "type": "handshake",
+  "assigned_to": "qwen",
+  "status": "pending",
+  "priority": "high",
+  "created_at": "2026-04-03T00:00:00Z",
+  "payload": {
+    "task": "Handshake connectivity test",
+    "instructions": [
+      "Выполни команду: qwen --approval-mode yolo -p \"Напиши 'Qwen OK' в файл /Users/code/project/intel/results/conn_qwen.txt\"",
+      "Дождись завершения выполнения",
+      "Убедись, что файл /Users/code/project/intel/results/conn_qwen.txt создан",
+      "Запиши статус выполнения"
+    ],
+    "expected_output": {
+      "file": "/Users/code/project/intel/results/conn_qwen.txt",
+      "content": "Qwen OK"
+    },
+    "timeout_seconds": 60
+  },
+  "metadata": {
+    "test_type": "connectivity",
+    "agent_name": "qwen",
+    "description": "Проверка связи с Qwen Code CLI"
+  }
+}

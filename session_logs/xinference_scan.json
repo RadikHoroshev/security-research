@@ -1,0 +1,254 @@
+[
+  {
+    "file": "/tmp/inference/setup.py",
+    "line": 110,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "proc_result = subprocess.run(cmd, cwd=web_src_path)"
+  },
+  {
+    "file": "/tmp/inference/versioneer.py",
+    "line": 452,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "process = subprocess.Popen("
+  },
+  {
+    "file": "/tmp/inference/xinference/_version.py",
+    "line": 90,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "process = subprocess.Popen("
+  },
+  {
+    "file": "/tmp/inference/xinference/utils.py",
+    "line": 55,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "result = subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/core/virtual_env_manager.py",
+    "line": 444,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "result = subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/model/llm/core.py",
+    "line": 117,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "result = subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/model/llm/utils.py",
+    "line": 699,
+    "vuln_type": "eval() call",
+    "code_snippet": "data = eval(text, {}, {})"
+  },
+  {
+    "file": "/tmp/inference/xinference/model/llm/tool_parsers/llama3_tool_parser.py",
+    "line": 46,
+    "vuln_type": "eval() call",
+    "code_snippet": "data = eval(model_output, {}, {})"
+  },
+  {
+    "file": "/tmp/inference/xinference/model/image/ocr/deepseek_ocr.py",
+    "line": 231,
+    "vuln_type": "eval() call",
+    "code_snippet": "cor_list = eval(ref_text[2])"
+  },
+  {
+    "file": "/tmp/inference/xinference/model/image/ocr/deepseek_ocr.py",
+    "line": 399,
+    "vuln_type": "eval() call",
+    "code_snippet": "coords = eval(f\"[{coords_str}]\")  # Convert string coordinates to list"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/cosyvoice/utils/file_utils.py",
+    "line": 126,
+    "vuln_type": "os.system with dynamic argument",
+    "code_snippet": "os.system('sed -i s@Qwen2ForCausalLM@CosyVoice2ForCausalLM@g {}/config.json'.format(os.path.abspath(model_path)))"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/deepseek_vl2/serve/app_modules/utils.py",
+    "line": 289,
+    "vuln_type": "eval() call",
+    "code_snippet": "boxes.append(eval(onebox))"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/audiotools/core/playback.py",
+    "line": 204,
+    "vuln_type": "subprocess.call with dynamic argument",
+    "code_snippet": "subprocess.call("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/audiotools/core/ffmpeg.py",
+    "line": 42,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "proc = subprocess.Popen(ffargs, stderr=subprocess.PIPE, universal_newlines=True)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/audiotools/core/ffmpeg.py",
+    "line": 144,
+    "vuln_type": "subprocess.check_call with dynamic argument",
+    "code_snippet": "subprocess.check_call(shlex.split(command))"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/audiotools/ml/experiment.py",
+    "line": 46,
+    "vuln_type": "subprocess.check_output with dynamic argument",
+    "code_snippet": "subprocess.check_output("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/tools/sensevoice/fun_asr.py",
+    "line": 70,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "result = subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/tools/sensevoice/fun_asr.py",
+    "line": 98,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 102,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run(cmd)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 113,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "p_label = subprocess.Popen("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 176,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "p_infer = subprocess.Popen("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 409,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 462,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 478,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 539,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run(train_cmd)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 560,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "p_tensorboard = subprocess.Popen("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 653,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run(merge_cmd)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/manage.py",
+    "line": 679,
+    "vuln_type": "subprocess.run with dynamic argument",
+    "code_snippet": "subprocess.run(quantify_cmd)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/fish_speech/fish_speech/webui/launch_utils.py",
+    "line": 29,
+    "vuln_type": "subprocess.check_output with dynamic argument",
+    "code_snippet": "return subprocess.check_output("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/f5_tts/train/finetune_gradio.py",
+    "line": 365,
+    "vuln_type": "os.system with dynamic argument",
+    "code_snippet": "os.system(cmd)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/f5_tts/train/finetune_gradio.py",
+    "line": 497,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "training_process = subprocess.Popen(cmd, shell=True)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/f5_tts/train/finetune_gradio.py",
+    "line": 518,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "training_process = subprocess.Popen("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/megatts3/tts/utils/commons/hparams.py",
+    "line": 62,
+    "vuln_type": "eval() call",
+    "code_snippet": "return eval(expression, {}, context)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/megatts3/tts/utils/commons/hparams.py",
+    "line": 175,
+    "vuln_type": "eval() call",
+    "code_snippet": "config_node[k] = eval(v)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/megatts3/tts/utils/commons/ckpt_utils.py",
+    "line": 38,
+    "vuln_type": "subprocess.check_call with dynamic argument",
+    "code_snippet": "subprocess.check_call("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/megatts3/tts/utils/commons/ckpt_utils.py",
+    "line": 45,
+    "vuln_type": "subprocess.check_call with dynamic argument",
+    "code_snippet": "subprocess.check_call(f'rm -rf {shm_ckpt_path}', shell=True)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/megatts3/tts/utils/audio_utils/io.py",
+    "line": 49,
+    "vuln_type": "subprocess.check_call with dynamic argument",
+    "code_snippet": "subprocess.check_call("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/megatts3/tts/utils/audio_utils/io.py",
+    "line": 52,
+    "vuln_type": "subprocess.check_call with dynamic argument",
+    "code_snippet": "subprocess.check_call(f'rm -f \"{out_path}.wav\"', shell=True)"
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/indextts/BigVGAN/alias_free_activation/cuda/load.py",
+    "line": 104,
+    "vuln_type": "subprocess.check_output with dynamic argument",
+    "code_snippet": "raw_output = subprocess.check_output("
+  },
+  {
+    "file": "/tmp/inference/xinference/thirdparty/indextts/s2mel/modules/bigvgan/alias_free_activation/cuda/load.py",
+    "line": 69,
+    "vuln_type": "subprocess.check_output with dynamic argument",
+    "code_snippet": "raw_output = subprocess.check_output("
+  },
+  {
+    "file": "/tmp/inference/examples/AI_podcast_ZH.py",
+    "line": 234,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "process = subprocess.Popen([\"say\", \"-v\", voice, text])"
+  },
+  {
+    "file": "/tmp/inference/examples/AI_podcast.py",
+    "line": 181,
+    "vuln_type": "subprocess.Popen with dynamic argument",
+    "code_snippet": "process = subprocess.Popen([\"say\", \"-v\", voice, text])"
+  }
+]

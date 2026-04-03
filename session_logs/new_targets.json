@@ -1,0 +1,87 @@
+{
+  "phase": 1,
+  "agent": "qwen",
+  "status": "ok",
+  "ts": 1743638400,
+  "data": {
+    "search_criteria": {
+      "language": "Python",
+      "features": ["HTTP REST API", "file upload/processing"],
+      "active": "2026",
+      "cve_count": "low",
+      "excluded": ["vLLM", "DB-GPT", "Langflow", "RAGFlow", "Flowise"]
+    },
+    "targets": [
+      {
+        "repo": "xorbitsai/inference",
+        "name": "Xorbits Inference (Xinference)",
+        "github_url": "https://github.com/xorbitsai/inference",
+        "stars": "~8k",
+        "surface": "Multi-model inference server with REST API. Supports model upload, registration, and dynamic loading. HTTP endpoints for model management, file-based model storage, and multi-modal processing (text, audio, images).",
+        "attack_vectors": [
+          "Model upload endpoint - potential path traversal",
+          "Dynamic model loading - potential deserialization",
+          "Multi-modal file processing - PDF, audio, image parsers",
+          "REST API authentication bypass potential"
+        ],
+        "reason": "Only 2 known CVEs (2025) for low CVE count. Active development with 2026 commits. Python-based inference server similar to vLLM but less audited. File upload + model loading = RCE potential. Huntr has bounties for similar inference servers (TGI, Triton).",
+        "priority": "HIGH",
+        "estimated_bounty": "$1500-$4000"
+      },
+      {
+        "repo": "langgenius/dify",
+        "name": "Dify",
+        "github_url": "https://github.com/langgenius/dify",
+        "stars": "~50k",
+        "surface": "Open-source LLM app development platform. REST API for workflow creation, file upload for RAG knowledge bases, document processing pipeline, plugin system with code execution, multi-tenant architecture.",
+        "attack_vectors": [
+          "File upload for knowledge base - path traversal/RCE",
+          "Workflow code nodes - sandbox escape potential",
+          "Plugin system - arbitrary code execution",
+          "Document parsers (PDF, DOCX, etc.) - parser vulnerabilities",
+          "Multi-tenant isolation - tenant data access bypass"
+        ],
+        "reason": "Only 1 known CVE (CVE-2024-12776 - password reset). Massive attack surface: file upload + code execution + plugins + document parsing. Very popular (50k stars) = more users impacted. Active 2026 development. Python backend with FastAPI. Huntr bounty programs cover similar LLM platforms.",
+        "priority": "HIGH",
+        "estimated_bounty": "$1500-$5000"
+      },
+      {
+        "repo": "microsoft/presidio",
+        "name": "Microsoft Presidio",
+        "github_url": "https://github.com/microsoft/presidio",
+        "stars": "~16k",
+        "surface": "PII detection and redaction framework. REST API for text/image analysis. File upload for document redaction (PDF, images, text). OCR integration for image text extraction. Analyzer and redactor services.",
+        "attack_vectors": [
+          "Image redaction pipeline - image parsing vulnerabilities (Pillow CVEs)",
+          "OCR processing - untrusted input to OCR engine",
+          "Document upload - PDF/image parsing RCE",
+          "REST API - input validation issues",
+          "Custom analyzer plugins - code injection"
+        ],
+        "reason": "Only 0-1 known CVEs (very low). Microsoft project = prestige bounty. File upload + image processing + OCR = multiple attack vectors. Python-based with Pillow/PIL usage (potential CVE-2025-48379). Active 2026 development. Unique target (PII redaction niche) = less competition.",
+        "priority": "MEDIUM",
+        "estimated_bounty": "$1500-$3000"
+      }
+    ],
+    "summary": {
+      "total_targets": 3,
+      "high_priority": 2,
+      "medium_priority": 1,
+      "common_attack_surfaces": [
+        "File upload endpoints",
+        "Document parsing (PDF, images)",
+        "Model/artifact deserialization",
+        "REST API input validation",
+        "Plugin/code execution systems"
+      ],
+      "recommended_tools": [
+        "Burp Suite Community/Pro",
+        "ffuf for fuzzing",
+        "nuclei for known CVEs",
+        "Pillow vulnerability scanners",
+        "PDF analysis tools (peepdf, pdfid)"
+      ]
+    },
+    "notes": "All targets excluded per user request: vLLM, DB-GPT, Langflow, RAGFlow, Flowise. Targets selected based on: Python language, REST API presence, file upload features, 2026 activity, low CVE count (<3), and huntr.com bounty eligibility."
+  }
+}

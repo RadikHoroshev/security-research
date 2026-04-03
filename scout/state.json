@@ -1,0 +1,22 @@
+{
+  "seen_hashes": [
+    "mlx-lm-apple-native",
+    "q4km-16gb-ram",
+    "zed-acp-mcp",
+    "roo-code-roles",
+    "architect-coder-debug",
+    "sequential-thinking-mcp",
+    "agentsecrets-proxy",
+    "deepseek-r1-russian",
+    "antigravity-burpsuite-mcp",
+    "opencode-lightweight-ide",
+    "1password-cli-secrets",
+    "bug-bounty-market-2026",
+    "cai-cybersecurity-ai-framework",
+    "transilience-pentest-skills",
+    "claude-bug-bounty-terminal"
+  ],
+  "total_found": 15,
+  "last_run": "2026-04-02T00:00:00",
+  "runs": 3
+}

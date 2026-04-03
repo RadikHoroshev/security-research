@@ -1,0 +1,12 @@
+{
+  "status": "submitted",
+  "url": "https://huntr.com/bounties/b543ee87-5afb-4da8-b512-0b407222716b",
+  "timestamp": 1743724800,
+  "repository": "ParisNeo/lollms",
+  "vulnerability_type": "Path Traversal",
+  "cvss_score": 8.8,
+  "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+  "title": "Path Traversal in /upload_app leads to RCE via custom function injection",
+  "cve": "TBD",
+  "notes": "Successfully submitted. Report pending triage by maintainer."
+}

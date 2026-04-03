@@ -1,0 +1,27 @@
+{
+  "id": "handshake_gemini",
+  "type": "handshake",
+  "assigned_to": "gemini",
+  "status": "pending",
+  "priority": "high",
+  "created_at": "2026-04-03T00:00:00Z",
+  "payload": {
+    "task": "Handshake connectivity test",
+    "instructions": [
+      "Выполни команду: export PATH=\"/opt/homebrew/bin:$PATH\" && gemini -p \"Напиши 'Gemini OK' в файл /Users/code/project/intel/results/conn_gemini.txt\" --yolo",
+      "Дождись завершения выполнения",
+      "Убедись, что файл /Users/code/project/intel/results/conn_gemini.txt создан",
+      "Запиши статус выполнения"
+    ],
+    "expected_output": {
+      "file": "/Users/code/project/intel/results/conn_gemini.txt",
+      "content": "Gemini OK"
+    },
+    "timeout_seconds": 60
+  },
+  "metadata": {
+    "test_type": "connectivity",
+    "agent_name": "gemini",
+    "description": "Проверка связи с Gemini CLI"
+  }
+}

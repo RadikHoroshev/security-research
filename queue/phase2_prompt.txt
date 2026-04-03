@@ -1,0 +1,15 @@
+Read task from /Users/code/project/intel/queue/phase2_audit.json
+
+Clone https://github.com/Mintplex-Labs/anything-llm to /tmp/anythingllm (depth=1).
+
+Analyze ALL source files for:
+1. RCE: eval(), exec(), subprocess with user input, child_process.exec
+2. Path Traversal: file read/write/send with unsanitized user paths
+3. SSRF: http requests with user-controlled URLs
+4. Prompt Injection: LLM calls with unsanitized user input in system prompt
+5. Dangerous: pickle.load, yaml.load, deserialize
+
+For each finding write ONLY JSON to /Users/code/project/intel/results/phase2_qwen.json:
+{"phase":2,"agent":"qwen","status":"ok","ts":UNIX_TIMESTAMP,"data":{"findings":[{"file":"relative/path.js","line":42,"type":"RCE","severity":"High","snippet":"exec(userInput)","exploitable":true}],"summary":"N findings: X Critical, Y High"}}
+
+No explanations. JSON only. Max 50 findings.

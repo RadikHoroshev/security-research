@@ -1,0 +1,92 @@
+# Langflow API Endpoints - File Upload & Graph Processing
+
+## File Upload Endpoints
+
+### POST /api/v1/files/upload/{flow_id}
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/files.py:75
+- Function: upload_file()
+- Parameters: file (UploadFile), flow_id (UUID)
+- Sanitization: 
+  - File size check (max_file_size_upload)
+  - Filename hashed with SHA256 if not provided
+  - Timestamp prefix added
+  - Stored in flow-specific folder
+- Risk: LOW (flow authorization via get_flow dependency)
+
+### POST /api/v1/flows/upload/
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/flows.py:738
+- Function: upload_flows()
+- Purpose: Batch flow upload
+
+## Graph/Flow Processing Endpoints
+
+### POST /api/v1/chat/build/{flow_id}/flow
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/chat.py:138
+- Function: build_flow()
+- Purpose: Build and process flow graph
+
+### POST /api/v1/chat/build_public_tmp/{flow_id}/flow
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/chat.py:580
+- Function: build_public_tmp_flow()
+- Purpose: Build public temp flow
+
+### POST /api/v1/flows/
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/flows.py:300
+- Function: create_flow()
+- Purpose: Create new flow (accepts graph JSON)
+
+### POST /api/v1/flows/batch/
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/flows.py:716
+- Function: batch_create_flows()
+- Purpose: Batch create flows
+
+## Component/Code Validation Endpoints
+
+### POST /api/v1/validate/code
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/validate.py:13
+- Function: validate_code()
+- Purpose: Validate custom component code
+- Auth: Requires active user
+
+### POST /api/v1/validate/prompt
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/validate.py:26
+- Function: validate_prompt()
+- Purpose: Validate prompt templates
+- Auth: Requires active user
+
+## Model/Provider Endpoints
+
+### POST /api/v1/models/validate-provider
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/models.py:321
+- Function: validate_provider()
+- Purpose: Validate LLM provider configuration
+
+### POST /api/v1/models/enabled_models
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/models.py:605
+- Function: enable_models()
+- Purpose: Enable AI models
+
+## MCP (Model Context Protocol) Endpoints
+
+### POST /api/v1/mcp/
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/mcp.py:146
+- Auth: Requires raise_error_if_astra_cloud_env
+
+### POST /api/v1/mcp-projects/{project_id}/install
+- File: /tmp/langflow/src/backend/base/langflow/api/v1/mcp_projects.py:682
+- Purpose: Install MCP project
+
+## Key Security Observations
+
+1. File uploads require flow ownership verification (get_flow dependency)
+2. File names are sanitized with timestamp prefix and SHA256 fallback
+3. Storage uses flow-specific folders (isolated per flow)
+4. Code validation endpoints require authentication
+5. MCP endpoints have additional Astra Cloud environment checks
+
+## Files to Audit for Path Traversal
+
+1. /tmp/langflow/src/backend/base/langflow/api/v1/files.py
+2. /tmp/langflow/src/backend/base/langflow/services/storage/service.py
+3. /tmp/langflow/src/backend/base/langflow/api/v1/flows.py (upload/ endpoint)
+4. /tmp/langflow/src/backend/base/langflow/api/v1/chat.py (build endpoints)

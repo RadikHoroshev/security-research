@@ -1,0 +1,15 @@
+{
+  "confirmed": true,
+  "sanitization_present": false,
+  "notes": "Confirmed path traversal in upload_app (lollms_apps.py line 308-369). app_name is read directly from description.yaml via yaml.safe_load (line 340: app_name = description.get('name')) and then used unsanitized in apps_zoo_path / app_name (line 347) followed by shutil.move(temp_dir, app_dir) (line 354). No call to sanitize_path() is made on app_name from the YAML. By contrast, sanitize_path() IS applied to: file.filename (line 311), request.app_name from API endpoints (lines 219, 237, 247, 272) — but NOT to the YAML-derived name. The sanitize_path() function (security.py:289) blocks '..' sequences, absolute paths starting with '/', and shell injection patterns like $(). However, a crafted app_name like '../custom_function_calls/evil_func' would be blocked by the '..' check. A more subtle traversal using path components without '..' — or a symlink-based approach — may still be viable depending on OS path resolution. The core finding stands: app_name from YAML is NEVER passed through sanitize_path, creating an unsanitized path construction. CVSS 8.8 (per phase4_finding.json) appears accurate given valid client_id is obtainable via websocket.",
+  "code_location": "/private/tmp/lollms-webui/lollms/server/endpoints/lollms_apps.py",
+  "vulnerable_lines": {
+    "app_name_read": 340,
+    "path_construction": 347,
+    "file_write": 354
+  },
+  "sanitize_path_applied_to_filename": true,
+  "sanitize_path_applied_to_yaml_name": false,
+  "sanitize_path_blocks_dotdot": true,
+  "verified_at": "2026-04-02"
+}

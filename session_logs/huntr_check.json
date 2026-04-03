@@ -1,0 +1,9 @@
+{
+  "has_bounty": true,
+  "max_reward": 1500,
+  "url": "https://huntr.com/bounties/disclose/opensource?target=https://github.com/parisneo/lollms",
+  "notes": "huntr open source AI/ML bug bounty program. parisneo/lollms (and lollms-webui) is listed. Program rewards up to $1,500 + CVE attribution. lollms-webui is not a separate entry - it shares the parisneo/lollms program. Active hacktivity found (CVE-2026-0558, Unauthenticated File Upload in LollMS, valid, patched 2026-01-01). Disclosures with amount:0 indicate open-source tier (fixed reward structure, not per-bounty pricing).",
+  "program_type": "open_source",
+  "cve_example": "CVE-2026-0558",
+  "checked_at": "2026-04-02"
+}

@@ -1,0 +1,21 @@
+{
+  "agent": "gemini",
+  "repo": "eosphoros-ai/DB-GPT",
+  "existing_cves": [
+    "CVE-2026-4505 (Unrestricted File Upload -> RCE in controller.py)",
+    "CVE-2026-4504 (SQL Injection in /api/v1/editor/)",
+    "CVE-2025-6772 (Path Traversal in /api/v2/serve/awel/flow/import)",
+    "CVE-2025-0452 (Arbitrary File Deletion on Windows)",
+    "CVE-2024-10902 (Arbitrary File Upload with Path Traversal in /v1/personal/agent/upload)",
+    "CVE-2024-10831 (Absolute Path Traversal via file_key)",
+    "CVE-2024-10835 (SQL-to-RCE via DuckDB arbitrary file write)",
+    "CVE-2024-10830 (Arbitrary File Deletion via file_key)"
+  ],
+  "existing_reports": [
+    "huntr report: Unrestricted File Upload in dbgpt_serve/agent/hub/controller.py",
+    "huntr report: SQL Injection in SQL editor endpoint",
+    "huntr report: Path Traversal via File argument in import_flow"
+  ],
+  "safe_to_submit": false,
+  "notes": "Project has a high number of reported vulnerabilities covering all requested categories (Path Traversal, File Upload, RCE, SQL Injection). Most critical endpoints (/v1/personal/agent/upload, /api/v1/editor/, /api/v2/serve/awel/flow/import) have already been targeted. Any new report must target a DIFFERENT endpoint or provide a bypass for current fixes to avoid being marked as a duplicate."
+}

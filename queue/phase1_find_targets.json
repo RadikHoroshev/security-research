@@ -1,0 +1,1 @@
+{"phase":1,"task":"find_targets","target":"huntr.com","args":{"lang":["python","nodejs"],"min_reward":200,"exclude":["ParisNeo/lollms","Mintplex-Labs/anything-llm"],"max_results":5}}
