@@ -1,0 +1,17 @@
+{
+  "agents": {
+    "gemini": {
+      "until": 1775401857,
+      "reason": "suspicious behavior",
+      "reports": 0
+    }
+  },
+  "log": [
+    {
+      "agent": "gemini",
+      "reason": "suspicious behavior",
+      "until": 1775401857,
+      "ts": 1775401737
+    }
+  ]
+}

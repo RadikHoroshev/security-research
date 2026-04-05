@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+#!/Users/code/.pyenv/versions/3.11.9/bin/python3.11
 """
 agent_bridge_mcp.py — Единый мост мульти-агентной системы
 
