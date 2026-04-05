@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-04-04T23:02:20.274634",
+  "category": "research_papers",
+  "title": "Research: multi-agent system vulnerability research",
+  "content": "MCP issues detected. Run /mcp list for status.I will search for multi-agent system vulnerability research on arXiv and GitHub to find the top 5 relevant results.\nHere are the top 5 results for multi-agent system vulnerability research from arXiv and GitHub:\n\n1. **Prompt Infection: LLM-to-LLM Prompt Injection within Multi-Agent Systems**\n   - **URL:** [https://arxiv.org/abs/2410.09002](https://arxiv.org/abs/2410.09002)\n   - **Description:** This paper introduces \"prompt infection,\" a novel attack vector where malicious instructions self-replicate across interconnected agents. It demonstrates how a single compromised agent can spread malicious payloads through a system, acting similarly to a computer worm.\n\n2. **Security Considerations for Multi-agent Systems**\n   - **URL:** [https://arxiv.org/abs/2603.09002](https://arxiv.org/abs/2603.09002)\n   - **Description:** A comprehensive research paper that provides a systematic taxonomy of MAS vulnerabilities. It evaluates popular frameworks ag",
+  "url": ""
+}

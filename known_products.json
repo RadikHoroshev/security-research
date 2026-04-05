@@ -1,0 +1,142 @@
+{
+  "products": [
+    {
+      "name": "anythingllm",
+      "version": "1.12.0",
+      "category": "rag",
+      "last_seen": "2026-04-04T23:25:41.671620"
+    },
+    {
+      "name": "bandit",
+      "version": "bandit 1.9.4",
+      "category": "security",
+      "last_seen": "2026-04-04T23:25:40.809321"
+    },
+    {
+      "name": "claude",
+      "version": "2.1.87 Claude Code",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:37.873212"
+    },
+    {
+      "name": "claude-desktop",
+      "version": "1.569.0",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:41.649979"
+    },
+    {
+      "name": "codex",
+      "version": "codex-cli 0.118.0",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:37.944471"
+    },
+    {
+      "name": "copilot",
+      "version": "GitHub Copilot CLI 1.0.18.",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:38.555411"
+    },
+    {
+      "name": "docker",
+      "version": "Docker version 29.3.1 build c2be9cc",
+      "category": "cloud",
+      "last_seen": "2026-04-04T23:25:41.145067"
+    },
+    {
+      "name": "ffuf",
+      "version": "ffuf version: 2.1.0",
+      "category": "security",
+      "last_seen": "2026-04-04T23:25:39.806911"
+    },
+    {
+      "name": "gemini",
+      "version": "0.36.0",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:39.297684"
+    },
+    {
+      "name": "gh",
+      "version": "gh version 2.67.0 2025-02-11",
+      "category": "dev-tool",
+      "last_seen": "2026-04-04T23:25:41.564941"
+    },
+    {
+      "name": "goose",
+      "version": "1.29.0",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:38.188682"
+    },
+    {
+      "name": "helm",
+      "version": "version.BuildInfoVersion:v3.15.0-rc.2 GitCommit:c4e37b39dbb3",
+      "category": "cloud",
+      "last_seen": "2026-04-04T23:25:41.455962"
+    },
+    {
+      "name": "jules",
+      "version": "",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:38.133960"
+    },
+    {
+      "name": "nmap",
+      "version": "Nmap version 7.99  https://nmap.org ",
+      "category": "security",
+      "last_seen": "2026-04-04T23:25:40.840448"
+    },
+    {
+      "name": "nuclei",
+      "version": "",
+      "category": "security",
+      "last_seen": "2026-04-04T23:25:39.578542"
+    },
+    {
+      "name": "obsidian",
+      "version": "1.12.7",
+      "category": "knowledge",
+      "last_seen": "2026-04-04T23:25:41.629036"
+    },
+    {
+      "name": "ollama",
+      "version": "ollama version is 0.20.2",
+      "category": "ai-runtime",
+      "last_seen": "2026-04-04T23:25:39.371504"
+    },
+    {
+      "name": "qwen",
+      "version": "0.14.0",
+      "category": "ai-agent",
+      "last_seen": "2026-04-04T23:25:38.908288"
+    },
+    {
+      "name": "semgrep",
+      "version": "1.156.0",
+      "category": "security",
+      "last_seen": "2026-04-04T23:25:40.717231"
+    },
+    {
+      "name": "subfinder",
+      "version": "",
+      "category": "security",
+      "last_seen": "2026-04-04T23:25:39.671632"
+    },
+    {
+      "name": "terraform",
+      "version": "Terraform v1.9.0",
+      "category": "cloud",
+      "last_seen": "2026-04-04T23:25:41.039625"
+    },
+    {
+      "name": "warp",
+      "version": "0.2026.04.01.08.39.02",
+      "category": "terminal",
+      "last_seen": "2026-04-04T23:25:41.609527"
+    },
+    {
+      "name": "zed",
+      "version": "0.230.1",
+      "category": "editor",
+      "last_seen": "2026-04-04T23:25:41.588704"
+    }
+  ]
+}

@@ -9,6 +9,63 @@
 
 ---
 
+### Агент: Настройка 3-канальной коммуникации — 2026-04-03
+
+- **Агент:** qwen-code
+- **Задача:** Починить inter-agent коммуникацию, создать 3 канала с redundancy
+- **Результат:** Все 3 канала работают ✅
+
+**Что сделано:**
+
+1. **Handshake восстановлен:**
+   - `conn_qwen.txt` → ✅ Qwen OK
+   - `conn_gemini.txt` → ✅ Gemini OK
+   - `conn_jules.txt` → ✅ Jules OK
+   - `handshake_*.json` → статус обновлён на `completed`
+
+2. **Канал 1 — Файловый (queue/results):**
+   - `queue/*.json` → чтение/запись ✅
+   - `results/*.json` → чтение/запись ✅
+
+3. **Канал 2 — Agent Bridge MCP:**
+   - Переписан `intel/agent_bridge_mcp.py` с нуля (7 инструментов)
+   - Зарегистрирован в `~/.config/goose/config.yaml` (extensions/agent_bridge)
+   - Зарегистрирован в `~/.claude/settings.json` (agent-bridge)
+   - Инструменты: qwen_ask, gemini_ask, jules_ask, shell_exec, queue_status, result_read, queue_write
+
+4. **Канал 3 — Security Team MCP:**
+   - Зарегистрирован в `~/.config/goose/config.yaml` (extensions/security_team)
+   - Зарегистрирован в `~/.claude/settings.json` (security-team)
+   - 5 инструментов: security_team_run, qwen_ask, shell_run, qwen_code, browser_fetch
+
+5. **Goose orchestrator включен:**
+   - `extensions/orchestrator/enabled: true`
+
+**Файлы изменены:**
+- `intel/agent_bridge_mcp.py` — полностью переписан
+- `~/.config/goose/config.yaml` — добавлены agent_bridge, security_team, orchestrator enabled
+- `~/.claude/settings.json` — добавлены agent-bridge, security-team
+- `intel/queue/handshake_*.json` — статус completed
+- `intel/results/channel_test_*.json` — тесты прошли
+
+**Архитектура коммуникации:**
+```
+Goose (координатор)
+  ├── Канал 1: queue/*.json → qwen-code читает → results/*.json
+  ├── Канал 2: agent_bridge MCP → qwen_ask/gemini_ask/jules_ask
+  └── Канал 3: security-team MCP → qwen_code/qwen_ask/shell_run
+
+Claude (координатор)
+  ├── Канал 2: agent-bridge MCP → те же инструменты
+  └── Канал 3: security-team MCP → те же инструменты
+```
+
+**Redundancy:** Если канал 2 упал → канал 3 работает. Если оба MCP упали → файловый канал всегда работает.
+
+**Статус:** ✅ COMPLETE
+
+---
+
 ### Агент: Self-Identification (Qwen Code) — 2026-04-03
 
 - **Агент:** qwen-code

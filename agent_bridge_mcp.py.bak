@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+#!/usr/bin/env python3
 """
 agent_bridge_mcp.py — Единый мост мульти-агентной системы
 
@@ -424,38 +424,18 @@ def ollama_run(prompt: str, model: str = "qwen2.5-coder:14b", timeout: int = 120
 
 
 @mcp.tool()
-def qwen_run(prompt: str, timeout: int = 300, session_id: str = None) -> str:
-    """Запустить запрос через Qwen CLI (Primary Channel)."""
+def qwen_run(prompt: str, timeout: int = 300) -> str:
+    """Запустить запрос через Qwen CLI."""
     try:
-        cmd = [AGENT_PATHS["qwen_cli"], "--prompt", prompt, "--approval-mode", "yolo", "--output-format", "text"]
-        if session_id:
-            cmd.extend(["--session-id", session_id])
-        
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
-        
-        # Qwen CLI часто возвращает 1 даже при успехе, если были предупреждения
-        if result.returncode in [0, 1] and (result.stdout or result.stderr):
-            output = result.stdout.strip() if result.stdout else result.stderr.strip()
-            return output if output else "Empty response"
-            
-        return f"Error (Code {result.returncode}): {result.stderr}"
-    except subprocess.TimeoutExpired:
-        return f"Timeout ({timeout}s) — switching to fallback recommended"
-    except Exception as e:
-        return f"Exception: {str(e)}"
-
-
-@mcp.tool()
-def qwen_fallback_run(prompt: str, timeout: int = 300) -> str:
-    """Резервный канал через локальную модель qwen2.5-coder:14b (Ollama)."""
-    try:
-        cmd = [AGENT_PATHS["ollama"], "run", "qwen2.5-coder:14b", prompt]
+        cmd = [AGENT_PATHS["qwen_cli"], "--prompt", prompt]
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
         if result.returncode == 0:
             return result.stdout.strip()
-        return f"Fallback Error: {result.stderr}"
+        return f"Error: {result.stderr}"
+    except subprocess.TimeoutExpired:
+        return f"Timeout ({timeout}s) — возможно исчерпан лимит"
     except Exception as e:
-        return f"Fallback Exception: {str(e)}"
+        return f"Exception: {str(e)}"
 
 
 @mcp.tool()
@@ -469,25 +449,6 @@ def gemini_run(prompt: str, timeout: int = 180) -> str:
         return f"Error: {result.stderr}"
     except subprocess.TimeoutExpired:
         return f"Timeout ({timeout}s) — возможно исчерпан лимит"
-    except Exception as e:
-        return f"Exception: {str(e)}"
-
-
-@mcp.tool()
-def jules_run(prompt: str, repo: str = None, timeout: int = 600) -> str:
-    """Запустить асинхронную сессию через Jules CLI."""
-    try:
-        cmd = [AGENT_PATHS["jules"], "new"]
-        if repo:
-            cmd.extend(["--repo", repo])
-        cmd.append(prompt)
-        
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
-        if result.returncode == 0:
-            return f"Session started successfully:\n{result.stdout.strip()}"
-        return f"Error: {result.stderr}"
-    except subprocess.TimeoutExpired:
-        return f"Timeout ({timeout}s) — Jules works asynchronously, session might still be active."
     except Exception as e:
         return f"Exception: {str(e)}"
 
@@ -819,7 +780,7 @@ def smart_call(
     """
     Умный вызов агента с АВТОМАТИЧЕСКИМ контекстом.
 
-    agent_type: ollama | qwen_cli | gemini_cli | copilot | jules | shell
+    agent_type: ollama | qwen_cli | gemini_cli | copilot | shell
     task: задача
     agent_name: имя для логов (авто если не указано)
     auto_context: True → автоматически инжектит контекст (экономит 1000-3000 токенов)
@@ -845,8 +806,6 @@ def smart_call(
             return {"result": qwen_run(task)}
         elif agent_type == "gemini_cli":
             return {"result": gemini_run(task)}
-        elif agent_type == "jules":
-            return {"result": jules_run(task)}
         elif agent_type == "copilot":
             return {"result": copilot_suggest(task)}
         elif agent_type == "shell":
@@ -863,7 +822,7 @@ def shell_exec(command: str, cwd: str = PROJECT_ROOT, timeout: int = 300) -> str
     """Выполнить shell-команду."""
     try:
         result = subprocess.run(
-            command, capture_output=True, text=True,
+            command, shell=True, capture_output=True, text=True,
             cwd=cwd, timeout=timeout
         )
         return f"STDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}"

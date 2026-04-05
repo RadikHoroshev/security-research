@@ -156,6 +156,19 @@ AGENTS = {
         "last_response_ms": 0
     },
 
+
+    "opencode": {
+        "name": "OpenCode (Julius)",
+        "type": "ide",
+        "check": lambda: check_port(4096),
+        "fallback_chain": ["qwen_code", "ollama_qwen14b"],
+        "critical": False,
+        "status": "unknown",
+        "consecutive_failures": 0,
+        "last_check": None,
+        "last_response_ms": 0
+    },
+
     "kiro": {
         "name": "Kiro",
         "type": "ide",

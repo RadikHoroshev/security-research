@@ -1,0 +1,29 @@
+{
+  "test": "3-channel-communication-test",
+  "date": "2026-04-03T14:58:08.536745",
+  "channels": {
+    "channel_1_file_based": {
+      "status": "OK",
+      "method": "queue/*.json \u2192 results/*.json"
+    },
+    "channel_2_mcp_bridge": {
+      "status": "OK",
+      "method": "agent_bridge_mcp.py \u2192 qwen_ask"
+    },
+    "channel_3_security_mcp": {
+      "status": "OK",
+      "method": "security-team/mcp/server.py \u2192 5 tools"
+    }
+  },
+  "registered_in": {
+    "goose_config": [
+      "agent_bridge",
+      "security_team",
+      "orchestrator (enabled)"
+    ],
+    "claude_settings": [
+      "agent-bridge",
+      "security-team"
+    ]
+  }
+}

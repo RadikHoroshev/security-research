@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-04-04T22:58:08.163325",
+  "category": "huntr_bounties",
+  "title": "huntr: \u043d\u043e\u0432\u044b\u0435 \u0431\u0430\u0443\u043d\u0442\u0438 (Gemini search)",
+  "content": "MCP issues detected. Run /mcp list for status.I will search for the latest bug bounty reports from huntr.com in 2026 and provide the top 5 results.\nI will search for the specific URLs of the latest bug bounty reports on huntr.com from March 2026 to provide the requested details.\nBased on the latest data from the **huntr.com** Hacktivity feed in early 2026, here are 5 of the most recent and significant bug bounty results. These reports primarily focus on vulnerabilities within the AI/ML supply chain.\n\n| # | Title / Vulnerability | URL | Description |\n| :--- | :--- | :--- | :--- |\n| **1** | **Command Injection in mlflow** | [huntr.com/bounties/mlflow](https://huntr.com/bounties/mlflow) | A critical vulnerability where command injection was possible through `bash -c` and malicious model artifacts, allowing for full system compromise. |\n| **2** | **Remote Code Execution (RCE) in Apache Airflow** | [huntr.com/bounties/apache/airflow](https://huntr.com/bounties/apache/airflow) | An unsafe pi",
+  "url": "https://huntr.com"
+}

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.11
 """
 anythingllm_mcp.py — Центральная память мульти-агентной системы
 
@@ -37,9 +37,9 @@ if os.path.exists(_env_file):
                 API_KEY = _line.split("=", 1)[1]
                 break
         else:
-            API_KEY = "9MMMM0Y-2YC4FGE-JD7VX41-5MY20RT"  # Fallback
+            API_KEY = os.environ.get("ANYTHINGLLM_API_KEY", "CONFIGURED_VIA_ENV")  # Fallback
 else:
-    API_KEY = "9MMMM0Y-2YC4FGE-JD7VX41-5MY20RT"  # Iron-clad fallback
+    API_KEY = os.environ.get("ANYTHINGLLM_API_KEY", "CONFIGURED_VIA_ENV")  # Iron-clad fallback
 
 HOST = os.environ.get("ANYTHINGLLM_HOST", "http://localhost:3001")
 WORKSPACE = os.environ.get("ANYTHINGLLM_WORKSPACE", "moya-rabochaya-oblast")

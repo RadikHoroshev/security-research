@@ -1,0 +1,8 @@
+{
+  "id": "test_routing_to_jules",
+  "task": "Create a hello world Python function in a file named hello_jules.py",
+  "priority": 1,
+  "status": "pending",
+  "assigned_agent": "jules",
+  "timestamp": "2026-04-05T16:20:00Z"
+}

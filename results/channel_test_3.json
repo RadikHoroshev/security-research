@@ -1,0 +1,18 @@
+{
+  "task_id": "channel_test_3",
+  "agent": "security-team-mcp",
+  "channel": "security-mcp",
+  "status": "success",
+  "data": {
+    "tools_count": 5,
+    "tools": [
+      "security_team_run",
+      "qwen_ask",
+      "shell_run",
+      "qwen_code",
+      "browser_fetch"
+    ],
+    "server": "security-team/mcp/server.py"
+  },
+  "ts": "2026-04-03T14:58:08.536632"
+}

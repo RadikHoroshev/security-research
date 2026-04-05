@@ -39,6 +39,11 @@
 ```json
 {
   "agents": {
+    "trae": {
+      "type": "ide_assistant",
+      "roles": ["Orchestrator", "CodeAuthor", "Architect", "Validator", "Researcher"],
+      "strengths": ["complex_refactoring", "codebase_exploration", "multi_agent_orchestration", "security_audits"]
+    },
     "qwen-desktop": {
       "type": "cli",
       "command": "qwen -p \"PROMPT\"",

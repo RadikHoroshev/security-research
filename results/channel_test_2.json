@@ -1,0 +1,10 @@
+{
+  "task_id": "channel_test_2",
+  "agent": "agent-bridge-mcp",
+  "channel": "mcp-bridge",
+  "status": "success",
+  "data": {
+    "response": "Channel 2 OK"
+  },
+  "ts": "2026-04-03T14:57:47.054964"
+}
