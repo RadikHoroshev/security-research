@@ -74,6 +74,8 @@ def ingest_file(filepath, collection=None):
     # Generate metadata
     mtime = filepath.stat().st_mtime
     updated = frontmatter.get('updated', datetime.utcfromtimestamp(mtime).strftime('%Y-%m-%d'))
+    # Convert date objects to strings for ChromaDB
+    if hasattr(updated, "isoformat"): updated = updated.isoformat()
     
     # Generate stable ID from file path
     doc_id = hashlib.md5(str(filepath).encode()).hexdigest()[:16]
