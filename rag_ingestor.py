@@ -27,6 +27,10 @@ from pathlib import Path
 from datetime import datetime
 
 KB_DIR = Path(__file__).parent.parent / "knowledge_base"
+SESSION_LOGS = Path(__file__).parent / "session_logs"
+RESULTS = Path(__file__).parent / "results"
+INTEL_DIR = Path(__file__).parent
+ALL_DIRS = [KB_DIR, SESSION_LOGS, RESULTS, INTEL_DIR]
 CHROMA_PATH = str(Path(__file__).parent.parent / "var" / "chromadb")
 COLLECTION = "knowledge_base"
 
@@ -96,24 +100,27 @@ def ingest_file(filepath, collection=None):
     return filepath.name
 
 def ingest_all_kb():
-    """Ingest all .md and .json files from knowledge_base."""
+    """Ingest all .md and .json files from ALL directories."""
     collection = get_client().get_or_create_collection(COLLECTION)
     count = 0
     errors = 0
-    
+
     for ext in ['*.md', '*.json']:
-        for filepath in sorted(KB_DIR.rglob(ext)):
-            # Skip binary/cache dirs
-            if '__pycache__' in str(filepath) or '.git' in str(filepath):
+        for dir_path in ALL_DIRS:
+            if not dir_path.exists():
                 continue
-            try:
-                name = ingest_file(filepath, collection)
-                count += 1
-                print(f"  ✅ {name}")
-            except Exception as e:
-                errors += 1
-                print(f"  ❌ {filepath.name}: {str(e)[:80]}")
-    
+            for filepath in sorted(dir_path.rglob(ext)):
+                # Skip binary/cache dirs
+                if any(skip in str(filepath) for skip in ['__pycache__', '.git', 'node_modules', '.venv']):
+                    continue
+                try:
+                    name = ingest_file(filepath, collection)
+                    count += 1
+                    print(f"  ✅ {name}")
+                except Exception as e:
+                    errors += 1
+                    print(f"  ❌ {filepath.name}: {str(e)[:80]}")
+
     print(f"\n📊 Ingested: {count} files, {errors} errors")
     print(f"📈 Total in ChromaDB: {collection.count()} documents")
     return count

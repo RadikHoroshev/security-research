@@ -1,0 +1,19 @@
+{
+  "title": "Test XSS in search parameter",
+  "description": "# Description\n\nReflected XSS found in search parameter.",
+  "impact": "Attacker can execute arbitrary JavaScript",
+  "occurrences": {
+    "permalink": "https://github.com/test/test/blob/main/search.py#L42",
+    "description": "Unsanitized input in search parameter"
+  },
+  "cvss": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Unchanged",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+  }
+}

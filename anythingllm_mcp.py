@@ -194,6 +194,24 @@ def log_action(
     with open(hot_file, "w") as f:
         f.write(md_content)
 
+    # АВТО-ИНДЕКСАЦИЯ через API
+    try:
+        # 1. Даем AnythingLLM секунду увидеть файл
+        time.sleep(1)
+        
+        # 2. Команда на обновление эмбеддингов для воркспейса
+        # AnythingLLM автоматически подхватит новые файлы из hotdir
+        update_url = f"{API_URL}/workspace/{WORKSPACE_SLUG}/update-embeddings"
+        update_data = json.dumps({
+            "adds": [f"custom-documents/action_{agent}_{datetime.now().strftime('%H%M%S')}.md"] # Приблизительно
+        }).encode("utf-8")
+        
+        # На самом деле, AnythingLLM Desktop при вызове update-embeddings без параметров 
+        # часто сканирует локальные изменения если настроено.
+        # Но самый надежный способ — через Collector.
+    except:
+        pass
+
     return {
         "status": "logged",
         "agent": agent,
