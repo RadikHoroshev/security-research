@@ -1,7 +1,0 @@
-{
-  "timestamp": "2026-04-05T08:24:22.435622",
-  "category": "threat_intel",
-  "title": "Threat Intel: new zero-day exploit discovered 2026",
-  "content": "MCP issues detected. Run /mcp list for status.I will search for information regarding any new zero-day exploits discovered in 2026.\nThe top 5 zero-day exploits and significant security incidents discovered in early 2026 are:\n\n1.  **Google Chrome: CVE-2026-5281 (April 2026)**\n    *   **Description:** A high-severity \"use-after-free\" bug in **Dawn** (the WebGPU implementation for Chromium). It allows remote attackers to execute arbitrary code via a malicious HTML page.\n    *   **URL:** [csoonline.com](https://www.csoonline.com/article/3215843/google-patches-fourth-chrome-zero-day-of-2026.html)\n\n2.  **TrueConf: CVE-2026-3502 (April 2026)**\n    *   **Description:** A vulnerability in the updater validation of the TrueConf videoconferencing client. It has been used by Chinese-nexus threat actors to target government entities in Southeast Asia by pushing malicious updates.\n    *   **URL:** [helpnetsecurity.com](https://www.helpnetsecurity.com/2026/04/03/trueconf-zero-day-exploited/)\n\n3.  **C",
-  "url": ""
-}

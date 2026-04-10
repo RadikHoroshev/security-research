@@ -1,7 +1,0 @@
-{
-  "timestamp": "2026-04-04T22:59:52.224652",
-  "category": "threat_intel",
-  "title": "Threat Intel: new zero-day exploit discovered 2026",
-  "content": "MCP issues detected. Run /mcp list for status.I will search for the latest information on zero-day exploits discovered in 2026.\nAs of early April 2026, several high-impact zero-day exploits have been discovered and are being actively tracked. Here are the top 5 results based on recent security advisories and industry reports:\n\n1. **CVE-2026-5281: Google Chrome Dawn Use-After-Free**\n   - **URL:** [https://www.bleepingcomputer.com/news/security/google-patches-fourth-chrome-zero-day-of-2026-exploited-in-the-wild/](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUp2mrUcJclSwMlR_QMm8MGfg1DwlXI_m0zEXS1WXngs0iejE8sA4ChYpiQULJEpT5foQUpEn9IRVGpIOvif6qA0pKIqmzyjxq59nWDSeKaCluYETpKJA6GIjT-LyxFFtCRyQytyy4c-vFlWMOw5RejPg15l27OHWNpsH0Ia2myU1VGljYBP7BOEK4Kv1am-2KNgTyhgfqukgwc8nNAJtxISdwhlcFix8nG3g=)\n   - **Description:** A high-severity use-after-free vulnerability in Dawn, the Chromium implementation of the WebGPU standard. This flaw allows remote code execution (RCE) when a us",
-  "url": ""
-}

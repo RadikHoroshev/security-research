@@ -1,7 +1,0 @@
-{
-  "timestamp": "2026-04-04T22:54:55.525179",
-  "category": "threat_intel",
-  "title": "Threat Intel: new zero-day exploit discovered 2026",
-  "content": "MCP issues detected. Run /mcp list for status.I will search for the latest information on zero-day exploits discovered in 2026.\nAs of April 2026, several high-impact zero-day exploits have been identified. Here are the top 5 results based on recent activity:\n\n### 1. Google Chrome: CVE-2026-5281\n*   **URL:** [thehackernews.com](https://thehackernews.com/2026/04/google-releases-emergency-update-for.html)\n*   **Description:** An emergency update was released to patch a high-severity **use-after-free** vulnerability in **Dawn**, the open-source implementation of the **WebGPU** standard. A remote attacker can execute arbitrary code via a crafted HTML page. This marks the fourth Chrome zero-day patched in 2026.\n\n### 2. Citrix NetScaler ADC & Gateway: CVE-2026-3055\n*   **URL:** [govinfosecurity.com](https://www.govinfosecurity.com/citrix-netscaler-zero-day-exploited-in-wild-a-24512)\n*   **Description:** A critical vulnerability (CVSS 9.3) involving an **out-of-bounds read** condition. Attacke",
-  "url": ""
-}

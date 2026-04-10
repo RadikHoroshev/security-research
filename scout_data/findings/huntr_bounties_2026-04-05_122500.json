@@ -1,7 +1,0 @@
-{
-  "timestamp": "2026-04-05T12:25:00.349001",
-  "category": "huntr_bounties",
-  "title": "huntr: \u043d\u043e\u0432\u044b\u0435 \u0431\u0430\u0443\u043d\u0442\u0438 (Gemini search)",
-  "content": "MCP issues detected. Run /mcp list for status.I will search for the latest bug bounty reports on huntr.com from 2026 and provide the top 5 results.\nBased on recent activity on huntr.com as of April 2026, here are the top 5 latest bug bounty reports:\n\n1.  **Job API exposed without authorization**\n    *   **URL:** [https://huntr.com/bounties/mlflow/mlflow](https://huntr.com/bounties/mlflow/mlflow)\n    *   **Description:** A critical vulnerability in MLflow where the Job API was exposed without proper authorization, potentially allowing unauthorized users to manage or trigger jobs.\n    *   **Bounty:** $1,500 (Critical)\n\n2.  **Airflow externalLogUrl Permission Bypass**\n    *   **URL:** [https://huntr.com/bounties/apache/airflow](https://huntr.com/bounties/apache/airflow)\n    *   **Description:** A medium-severity vulnerability in Apache Airflow that allowed users to bypass permission checks when accessing external log URLs.\n    *   **Bounty:** $100 (Medium)\n\n3.  **Command Injection through",
-  "url": "https://huntr.com"
-}
