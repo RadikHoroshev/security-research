@@ -2,11 +2,11 @@
 """
 huntr_logger.py — Real-time logging for Huntr bug bounty process
 
-Использование:
-  python3 intel/huntr_logger.py --log "subfinder found 45 subdomains" --agent gemini --tool subfinder --target target.com
-  python3 intel/huntr_logger.py --vuln "XSS in login" --severity HIGH --target https://target.com --agent qwen
-  python3 intel/huntr_logger.py --status                    # Показать статус
-  python3 intel/huntr_logger.py --today                     # Отчёт за сегодня
+Usage:
+  python3 huntr_logger.py --log "subfinder found 45 subdomains" --tool subfinder --target target.com
+  python3 huntr_logger.py --vuln "XSS in login" --severity HIGH --target https://target.com
+  python3 huntr_logger.py --status                    # Show status
+  python3 huntr_logger.py --today                     # Today's report
 """
 
 import json
